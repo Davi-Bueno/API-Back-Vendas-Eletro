@@ -1,0 +1,61 @@
+{
+  "products": [
+    {
+      "id": "3",
+      "name": "Sansung S20+ Ultra",
+      "price": "7520.89"
+    },
+    {
+      "name": "Lapis Preto Básico",
+      "price": "1.50",
+      "id": "4"
+    },
+    {
+      "name": "veio  do forms",
+      "price": "9.99",
+      "id": "7"
+    },
+    {
+      "name": "teste teste lol",
+      "price": "222,5",
+      "id": "8"
+    },
+    {
+      "name": "aqui funciona ",
+      "price": "22.22",
+      "id": "9"
+    },
+    {
+      "id": "93db"
+    },
+    {
+      "id": "3dbd"
+    },
+    {
+      "id": "teste",
+      "name": "teste",
+      "price": 5
+    },
+    {
+      "id": "teste",
+      "name": "sajsda",
+      "price": 50
+    },
+    {
+      "id": "teste",
+      "name": "sajsda",
+      "price": 50
+    },
+    {
+      "id": "8a83"
+    },
+    {
+      "id": "put"
+    },
+    {
+      "id": "7bcf",
+      "name": "lala",
+      "price": 10000
+    }
+  ]
+}
