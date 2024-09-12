@@ -1,0 +1,62 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+model Carrinho {
+  id           Int      @id @default(autoincrement()) @map("ID_Carrinho")
+  data_criacao DateTime
+  cliente      Cliente  @relation(fields: [clienteId], references: [id], onDelete: Cascade)
+  clienteId    Int      @map("ID_Cliente")
+  vendedor     Vendedor @relation(fields: [vendedorId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  vendedorId   Int      @map("ID_Vendedor")
+  itens        CarrinhoEletro[]
+
+  @@map("tbl_Carrinho")
+}
+
+model CarrinhoEletro {
+  carrinho         Carrinho        @relation(fields: [carrinhoId], references: [id], onDelete: Cascade)
+  carrinhoId       Int             @map("ID_Carrinho")
+  eletrodomestico  Eletrodomestico @relation(fields: [eletrodomesticoId], references: [id], onDelete: Cascade)
+  eletrodomesticoId Int             @map("ID_Eletro")
+  quantidade       Int
+
+  @@id([carrinhoId, eletrodomesticoId])
+  @@map("tbl_Carrinho_Eletro")
+}
+
+model Cliente {
+  id        Int        @id @default(autoincrement()) @map("ID_Cliente")
+  nome      String
+  contato   String
+  email     String
+  CPF       String
+  carrinhos Carrinho[]
+
+  @@map("tbl_Cliente")
+}
+
+model Eletrodomestico {
+  id            Int      @id @default(autoincrement()) @map("ID_Eletro")
+  eletrodomestico String
+  valor         Float
+  vendedor      Vendedor @relation(fields: [vendedorId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  vendedorId    Int      @map("ID_Vendedor")
+  carrinhoItens CarrinhoEletro[]
+
+  @@map("tbl_Eletrodomesticos")
+}
+
+model Vendedor {
+  id              Int               @id @default(autoincrement()) @map("ID_Vendedor")
+  nome            String
+  carrinhos       Carrinho[]
+  eletrodomesticos Eletrodomestico[]
+
+  @@map("tbl_Vendedor")
+}

@@ -1,6 +1,7 @@
 const swaggerJsdoc = require('swagger-jsdoc');//biblio para gerar a  doc
 const swaggerUi = require('swagger-ui-express');//interface do uso da doc
 
+
 const swaggerOptions = {//configs
   definition: {
     openapi: '3.0.0',
